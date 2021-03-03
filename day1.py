@@ -57,7 +57,16 @@ def two_of_three(x, y, z):
 
     "*** YOUR CODE HERE ***"
 
-    return
+    if x > y and x > z:
+        a = y
+        b = z
+    elif y > x and y > z:
+        a = x
+        b = z
+    else:
+        a = x
+        b = y
+    return a * a + b * b
 
 " Q4 "
 def largest_factor(n):
@@ -71,6 +80,13 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
+    b = n - 1
+    while b >= 1:
+        # do this loop over and over and over again
+        if n % b == 0:
+            return b
+        else:
+            b = b - 1
 
 
 " Q5 "
@@ -90,7 +106,7 @@ def if_function(condition, true_result, false_result):
     if condition:
         return true_result
     else:
-        return false_result 
+        return false_result
 
 def with_if_statement():
     """
