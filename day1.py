@@ -88,6 +88,34 @@ def largest_factor(n):
         else:
             b = b - 1
 
+def div_by_7(n):
+    """ Return true if n is divisible by 7 evenly.
+    Return false if n is not divisible by 7.
+
+    >>> div_by_7(7)
+    True
+    >>> div_by_7(20)
+    False
+    >>> div_by_7(77)
+    True
+    """
+
+    """ a % b returns the remainder of a divided by b """
+
+    """
+    Steps:
+    1. if the remainder is 0,
+        then it's divisible by 7
+    2. else:
+        return False
+    """
+
+    "*** YOUR CODE HERE ***"
+
+    if n % 7 == 0:
+        return True
+    else:
+        return False
 
 " Q5 "
 def if_function(condition, true_result, false_result):
