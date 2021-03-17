@@ -15,10 +15,13 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    length == 1
 
-
-
-
+    while(k != 0):
+        k - 1
+        length = length + 1
+    while(n != 0):
+        (n * n) * length - 1
 
 
 "Q2"
@@ -37,3 +40,10 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+
+"Q3"
+def cancel_culture(n, k):
+    while (k != 0):
+        number = k - 1
+        n * number
+        print (number)
