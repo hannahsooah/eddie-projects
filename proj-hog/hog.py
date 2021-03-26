@@ -17,12 +17,45 @@ def roll_dice(num_rolls, dice=six_sided):
 
     num_rolls:  The number of dice rolls that will be made.
     dice:       A function that simulates a single dice roll outcome.
+
+    >>> from hog import *
+    >>> counted_dice = make_test_dice(4, 1, 2, 6)
+    >>> roll_dice(3, counted_dice)
+    ? 1
+    -- OK! --
+
     """
     # These assert statements ensure that num_rolls is a positive integer.
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+
+    """
+    total = 4
+    num_rolls = 0
+    dice_roll = 2
+    pig_out = False
+
+    PLAN YOUR CODE
+    variable: total
+    """
+
+    total = 0
+    pig_out = False
+
+    while num_rolls > 0:
+        dice_roll = dice()
+        if dice_roll == 1:
+            pig_out = True
+        num_rolls = num_rolls - 1
+        total = total + dice_roll
+
+    if (pig_out == True):
+        total = 1
+
+    return total
+
     # END PROBLEM 1
 
 
