@@ -63,6 +63,29 @@ def free_bacon(score):
     """Return the points scored from rolling 0 dice (Free Bacon).
 
     score:  The opponent's current score.
+
+    e-score = 34
+    free_bacon(34)
+    return the 34th digit of pi (8)
+    trim pi to 35 digits
+    an integer n has k+1 digits if n < pow(10, k+1) but n >= pow(10, k)
+    pow(10, 34) <= n < pow(10, 35)
+    a = a // b (divides a by b and throws away the remainder)
+
+    pi = 314159265358979
+
+    score = 3
+    pi < pow(10, score + 1) ==> 10^4 ==> 10,000
+    pi >= pow(10, score) ==> 10^3 ==> 1,000
+
+    while pi > pow(10, 4):
+        pi = pi // 10
+
+    pi = 3141
+
+    return pi % 10 + 3
+    pi % 10 = 1
+
     """
     assert score < 100, 'The game should be over.'
     pi = FIRST_101_DIGITS_OF_PI
@@ -70,10 +93,11 @@ def free_bacon(score):
     # Trim pi to only (score + 1) digit(s)
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+    while pi > pow(10, score + 1):
+        pi = pi // 10
     # END PROBLEM 2
 
     return pi % 10 + 3
-
 
 def take_turn(num_rolls, opponent_score, dice=six_sided):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 (Free Bacon).
@@ -89,7 +113,25 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 3
+    """
+    PLANNING
+    when zero dice roll:
+        call free_bacon
+    when not zero dice roll:
+        call roll_dice
+
+    what do we need to return? points scored
+    what control logic do we use to distinguish between free_bacon and roll_dice?
+        while loop, if statement, conditionals
+        IF STATEMENT
+
+    """
     "*** YOUR CODE HERE ***"
+
+    if num_rolls == 0:
+        return free_bacon(opponent_score)
+    else:
+        return roll_dice(num_rolls, dice)
     # END PROBLEM 3
 
 
