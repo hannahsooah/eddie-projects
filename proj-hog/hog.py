@@ -151,11 +151,26 @@ def swine_align(player_score, opponent_score):
     True
     >>> swine_align(35, 45)  # The GCD is 5.
     False
+
+    greatest common divisor can be found by gcd(x, y)
+
     """
     # BEGIN PROBLEM 4a
     "*** YOUR CODE HERE ***"
-    # END PROBLEM 4a
+    if player_score == 0 or opponent_score == 0:
+        return False
 
+    gcd, test_div = 1, 2
+    while test_div <= min(player_score, opponent_score):
+        if player_score % test_div == 0 and opponent_score % test_div == 0:
+            gcd = test_div
+        test_div += 1
+
+    if gcd >= 10:
+        return True
+    else:
+        return False
+    # END PROBLEM 4a
 
 def pig_pass(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Pig Pass.
@@ -176,6 +191,12 @@ def pig_pass(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4b
     "*** YOUR CODE HERE ***"
+
+    if player_score < opponent_score and opponent_score - player_score < 3:
+        return True
+    else:
+        return False
+
     # END PROBLEM 4b
 
 
