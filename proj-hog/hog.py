@@ -232,16 +232,55 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     dice:       A function of zero arguments that simulates a dice roll.
     goal:       The game ends and someone wins when this score is reached.
     say:        The commentary function to call at the end of the first turn.
+
+    brainstorm:
+    - while loop (while player 0's score is less than goal)
+    - while player 1's score is less than goal
+        - how to determine which player is taking a turn?
+            - variable 'who' determines who takes a turn
+        - what happens in each turn
+            - first, strategy says how many dice to roll
+            - roll dice using take_turn
+            - call extra_turn to see if another turn
+                - if extra_turn, then it's still the same person's turn
+            - make 'who' be the other player by calling the function other
+    - return final total scores of both players (score 0 , score 1)
+
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    #take_turn(num_rolls, opponent_score, dice=six_sided)
+    #strategy(score, opponent_score)
+    #extra_turn(player_score, opponent_score)
+
+    while score0 < goal and score1 < goal:
+        if who == 0:
+            num_rolls = strategy0(score0, score1)
+            points = take_turn(num_rolls, score1, dice)
+            score0 = score0 + points
+            extra = extra_turn(score0, score1)
+            if extra is False:
+                who = other(who)
+        else:
+            num_rolls = strategy1(score1, score0)
+            points = take_turn(num_rolls, score0, dice)
+            score1 = score1 + points
+            extra = extra_turn(score1, score0)
+            if extra is False:
+                who = other(who)
+    return score0, score1
+
+
+
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
     # END PROBLEM 6
     return score0, score1
+
+
 
 
 #######################
