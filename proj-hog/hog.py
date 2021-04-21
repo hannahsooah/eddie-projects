@@ -269,10 +269,6 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
             extra = extra_turn(score1, score0)
             if extra is False:
                 who = other(who)
-    return score0, score1
-
-
-
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
