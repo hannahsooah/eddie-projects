@@ -57,3 +57,38 @@ def factorial(n):
     if n == 1:
         return 1
     return n * factorial(n - 1)
+
+def fib(n):
+    """
+    Returns the n-th fibbonacci sequence
+
+    >>> fib(1)
+    1
+    >>> fib(2)
+    1
+    >>> fib(3)
+    2
+    >>> fib(4)
+    3
+    >>> fib(5)
+    5
+    >>> fib(6)
+    8
+    >>> fib(7)
+    13
+    >>> fib(8)
+    21
+    >>> fib(9)
+    34
+    >>> fib(10)
+    55
+
+    it adds the previous 2 numbers together
+    fib(n) = fib(n-1) + fib(n-2)
+    fib(n-1) = fib(n-2) + fib(n-3)
+    fib(n-2) = fib(n-3) + fib(n-4)
+
+    fib(3) = fib(2) + fib(1) = 1 + 1 = 2
+    fib(5) = fib(4) + fib(3) = (fib(3) + fib(2)) + (fib(2) + fib(1)) =
+    fib(4) = fib(3) + fib(2)
+    """
