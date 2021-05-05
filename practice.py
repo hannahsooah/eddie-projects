@@ -159,13 +159,118 @@ def gcd(a, b):
     integers evenly. if the mod (%) is zero, then the number divides evenly and is a
     divisor (by definition).
     i.e. if x % y = 0, then y is a divisor of x
+
+    gcd(5, 10):
+        10 % 5 == 0
+        5 is a divisor of both 5 and 10
+        return 5
+    gcd(12, 18):
+        18 % 12 == 6
+        18 % 11 == 5 and 12 % 11 == 1
+        18 % 10 == 8 and 12 % 10 == 2
+        18 % 9 == 0 and 12 % 9 == 3
+        18 % 8 == 2 and 12 % 8 == 4
+        18 % 7 == 4 and 12 % 7 == 5
+        18 % 6 == 0 and 12 % 6 == 0
+        6 is a divisor of both 12 and 18
+        return 6
+    greatest common divisor
+    gcd(41, 5):
+        x = min(41, 5) = 5
+        while (a % x != 0) and (b % x != 0):
+        while (41 % 5 != 0) and (5 % 5 != 0):
+        while False and True:
+            x = x - 1 = 4
+    until a % x == 0 and b % x == 0
+    if a % x != 0
+    or if b % x != 0
+
     """
-
-
-
-
+    x = min(a, b)
+    while not (a % x == 0 and b % x == 0):
+        x = x - 1
+    return x
 
 def lcm(a, b):
     """
     Return the lowest common multiple of two positive integers a and b.
+
+    >>> lcm(35, 5)
+    35
+    >>> lcm(12, 18)
+    36
+    >>> lcm(2, 4)
+    4
+    >>> lcm(2, 3)
+    6
+    >>> lcm(9, 24)
+    72
     """
+
+    """
+    HINT:
+    x = max(a, b)
+    lcm(12, 18)
+    x = 18
+    18 % 12 == 6
+    x * 2 = 36
+    36 % 12 == 0
+    return 36
+
+    lcm(9, 24):
+    x = 24
+    24 % 9 = 6
+    x = 48
+    48 % 9 = 3
+    72 % 9 = 0
+    return 72
+
+    """
+
+    x = max(a,b)
+    y = min(a,b)
+    z = x
+    while x % y != 0:
+        x = x + z
+    return x
+
+def div2(x):
+    return x / 2
+def pow(x):
+    return x * x
+def mul9(x):
+    return x * 9
+def char(s):
+    return s[0]
+
+def apply(f, list):
+    """
+    Return a list with the function f applied to every element of list.
+
+    >>> apply(circle, [1, 2, 3])
+    [3.14, 12.56, 28.26]
+    >>> apply(sqrt, [4, 9, 16])
+    [2, 3, 4]
+    >>> apply(div2, [9, 4, 7])
+    [4.5, 2, 3.5]
+    >>> apply(pow, [9, 12, 4])
+    [81, 144, 16]
+    >>> apply(char, ["hello", "world", "this", "is", "eddie"])
+    ["h", "w", "t", "i", "e"]
+    """
+
+    """
+    HINT:
+
+    [ ____ for elem in list]
+    where ___ can be anything pertaining to the element
+
+    apply(circle, [1, 2, 3])
+    [1, 2, 3]
+    [circle(1), circle(2), circle(3)]
+    return [3.14, 12.56, 28.26]
+
+    """
+
+    list2 = [f(elem) for elem in list]
+    return list2
