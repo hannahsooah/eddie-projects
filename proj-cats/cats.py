@@ -17,7 +17,50 @@ def choose(paragraphs, select, k):
     """
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+
+    """
+    PLANNING
+
+    - first need to see if SELECT returns True
+    - then we need to see what number it is in the list
+
+    paragraphs = ['short', 'really long', 'tiny']
+                    0       1              2
+    select = True if len(p) <= 5
+    k = 0
+
+    filtered_list = ['short', 'tiny']
+
+    if k = 0, return filtered_list[0] = 'short'
+    if k = 1, return filtered_list[1] = 'tiny'
+    if k = 2, return ''
+
+    with Paragraphs:
+        we can make a sub-list
+        of elements in paragraphs:
+            some will return True for select
+                we only care about these
+                filtered_list = [elements for which select returns true]
+                return filtered_list[k]
+            some will return False for select
+    """
+
+    """
+    Eddie's plan
+
+    if SELECT returns True, add it to filtered_list
+    - filtered_list.append(paragraph)
+    - append means add to the end
+    filtered_list = []
+    Find num in filtered_list
+    if k > len(filtered_list), then return ''
+    """
     # END PROBLEM 1
+
+
+
+
+
 
 
 def about(topic):
